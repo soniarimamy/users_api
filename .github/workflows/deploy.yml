@@ -1,0 +1,16 @@
+name: Deploy to remote server
+on:
+  push:
+      branches:
+        - main
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Ensure docker-compose file is present
+        run: |
+            ls -la
+            docker --version || echo "Docker not found"
+            docker-compose --version || echo "dcr-cmp not found"
+      - name: Build and run
+        run: docker-compose up --build -d
