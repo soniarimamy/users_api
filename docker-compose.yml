@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  users_api:
+    build:
+      context: .
+    container_name: users_api
+    image: rochel05/users_api
+    ports:
+      -"8000:8000"
